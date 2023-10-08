@@ -2,8 +2,13 @@ package main
 
 import "fmt"
 
-const englishPrefix = "Hello, "
-const spanishPrefix = "Hola, "
+const (
+	english = "English"
+	spanish = "Spanish"
+
+	englishPrefix = "Hello, "
+	spanishPrefix = "Hola, "
+)
 
 func convertStringToBinary(str string) string {
 	binaryString := ""
@@ -19,9 +24,9 @@ func Hello(name string, lang string) string {
 	}
 
 	switch lang {
-	case "English":
+	case english:
 		return englishPrefix + name
-	case "Spanish":
+	case spanish:
 		return spanishPrefix + name
 	default:
 		return convertStringToBinary(englishPrefix) + convertStringToBinary(name)
@@ -31,4 +36,6 @@ func Hello(name string, lang string) string {
 
 func main() {
 	fmt.Println(Hello("Niklas", "English"))
+	fmt.Println(Hello("Niklas", "Spanish"))
+	fmt.Println(Hello("Niklas", ""))
 }
