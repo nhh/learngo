@@ -1,6 +1,8 @@
 package arrays_slices
 
-func Sum(arr [5]int) int {
+import "slices"
+
+func Sum(arr []int) int {
 	sum := 0
 
 	for _, num := range arr {
@@ -8,4 +10,22 @@ func Sum(arr [5]int) int {
 	}
 
 	return sum
+}
+
+func SumAll(arrays ...[]int) []int {
+
+	var returnArray []int
+
+	for _, array := range arrays {
+
+		sum := 0
+
+		for _, elem := range array {
+			sum += elem
+		}
+
+		slices.Insert(returnArray, sum)
+	}
+
+	return returnArray
 }
